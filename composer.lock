@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9f9c4a8d150859edccc5df77f6d6908f",
+    "content-hash": "22fd8c88f2173574c27e669501dde5de",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -507,12 +507,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "aaee038b912e567780949787d5fe1977be11a778"
+                "reference": "4bc82432dec0780315a7900500b79931be7153f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/aaee038b912e567780949787d5fe1977be11a778",
-                "reference": "aaee038b912e567780949787d5fe1977be11a778",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/4bc82432dec0780315a7900500b79931be7153f2",
+                "reference": "4bc82432dec0780315a7900500b79931be7153f2",
                 "shasum": ""
             },
             "require": {
@@ -551,7 +551,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2020-08-18T19:48:01+00:00"
+            "time": "2020-08-23T18:57:00+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -2042,12 +2042,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Codeception/Codeception.git",
-                "reference": "4691ecac31992aba50a7c1c58935a76be29ae8c2"
+                "reference": "d972dc301e418307ccbac5023185281996f44c47"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/4691ecac31992aba50a7c1c58935a76be29ae8c2",
-                "reference": "4691ecac31992aba50a7c1c58935a76be29ae8c2",
+                "url": "https://api.github.com/repos/Codeception/Codeception/zipball/d972dc301e418307ccbac5023185281996f44c47",
+                "reference": "d972dc301e418307ccbac5023185281996f44c47",
                 "shasum": ""
             },
             "require": {
@@ -2125,7 +2125,7 @@
                     "type": "open_collective"
                 }
             ],
-            "time": "2020-07-06T14:49:40+00:00"
+            "time": "2020-08-24T06:24:38+00:00"
         },
         {
             "name": "codeception/lib-asserts",
@@ -4688,12 +4688,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/yaml.git",
-                "reference": "e06e21e1632acefee71c2d4be67923abdc7f5cd3"
+                "reference": "2061f4acad50c6f9b17880d3d5fc5916d7351f74"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/yaml/zipball/e06e21e1632acefee71c2d4be67923abdc7f5cd3",
-                "reference": "e06e21e1632acefee71c2d4be67923abdc7f5cd3",
+                "url": "https://api.github.com/repos/symfony/yaml/zipball/2061f4acad50c6f9b17880d3d5fc5916d7351f74",
+                "reference": "2061f4acad50c6f9b17880d3d5fc5916d7351f74",
                 "shasum": ""
             },
             "require": {
@@ -4753,7 +4753,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2020-08-17T09:35:39+00:00"
+            "time": "2020-08-23T09:22:13+00:00"
         },
         {
             "name": "theseer/tokenizer",
@@ -5010,7 +5010,8 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.6.0"
+        "php": ">=5.6.0",
+        "ext-json": "*"
     },
     "platform-dev": [],
     "plugin-api-version": "1.1.0"

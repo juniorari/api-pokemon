@@ -22,6 +22,26 @@ AppAsset::register($this);
     <?php $this->registerCsrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
+    <style type="text/css">
+        .loading {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: rgba(0,0,0,.3);
+            z-index: 999999;
+        }
+        .loading-i {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            font-size:3em;
+            color: #000;
+        }
+    </style>
 </head>
 <body>
 <?php $this->beginBody() ?>
@@ -47,6 +67,11 @@ AppAsset::register($this);
     ?>
 
     <div class="container">
+
+        <div id="loading" class="hide loading">
+            <div class="loading-i"><i class="fa fa-spin fa-spinner"></i> Aguarde...</div>
+        </div>
+
         <?= Breadcrumbs::widget([
             'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
         ]) ?>

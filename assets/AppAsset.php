@@ -31,6 +31,8 @@ class AppAsset extends AssetBundle
 
     ];
     public $js = [
+        
+        'js/loading.js',
 
 //        <!-- DataTables JavaScript -->
         "js/dataTables/jquery.dataTables.min.js",
