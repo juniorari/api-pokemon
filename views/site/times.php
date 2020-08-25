@@ -3,21 +3,30 @@
 use app\models\Pokemon;
 use app\models\PokemonTypes;
 use app\models\PokemonSearch;
+use app\models\TeamsSearch;
 use yii\data\ActiveDataProvider;
 use yii\helpers\Html;
 use yii\grid\GridView;
 use yii\widgets\Pjax;
 use yii\widgets\ActiveForm;
+use app\models\Teams;
+use app\models\PokemonTeams;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Pokémons';
+$this->title = 'Times criados';
 $this->params['breadcrumbs'][] = $this->title;
 
-$model = new PokemonSearch();
+$model = new TeamsSearch();
 $dataProvider = $model->search(Yii::$app->request->queryParams);
 
+$this->registerJs("
+ $('[data-toggle=tooltip]').tooltip({
+    container: \"body\",
+    html: true,
+})
+", $this::POS_READY);
 
 ?>
 <div class="pokemon-index">
@@ -28,7 +37,7 @@ $dataProvider = $model->search(Yii::$app->request->queryParams);
     <div class="pokemon-search">
 
         <?php $form = ActiveForm::begin([
-            'action' => ['pokemons'],
+            'action' => ['times'],
             'method' => 'get',
             'options' => [
                 'data-pjax' => 1
@@ -37,7 +46,6 @@ $dataProvider = $model->search(Yii::$app->request->queryParams);
 
         <div class="row">
             <?= $form->field($model, 'name', ['options' => ['class' => 'form-group col-md-5']]) ?>
-            <?= $form->field($model, 'tipo', ['options' => ['class' => 'form-group col-md-3']]) ?>
 
             <div class="form-group col-md-2">
                 <label class="control-label">&nbsp;</label>
@@ -58,30 +66,20 @@ $dataProvider = $model->search(Yii::$app->request->queryParams);
             echo GridView::widget([
                 'dataProvider' => $dataProvider,
                 'columns' => [
-                    [
-                        'attribute' => 'image',
-                        'format' => 'raw',
-                        'headerOptions' => ['class' => 'text-center', 'style' => 'width: 100px'],
-                        'contentOptions' => ['class' => 'text-center'],
-                        'value' => function ($data) {
-                            return Html::img($data->image, ['width' => '45']);
-                        }
-                    ],
                     'name',
-//                    'height',
-//                    'weight',
-                    'xp',
                     [
-                        'label' => 'Tipos',
+                        'label' => 'Pokémons',
                         'format' => 'raw',
+                        'headerOptions' => ['class' => 'text-center'],
+                        'contentOptions' => ['nowrap' => 'nowrap', 'class' => 'text-center'],
                         'value' => function ($data) {
-                            /** @var Pokemon $data */
-                            $tipos = [];
-                            /** @var PokemonTypes $types */
-                            foreach ($data->pokemonTypes as $types) {
-                                $tipos[] = $types->type->name;
+                            /** @var Teams $data */
+                            $pokes = [];
+                            /** @var PokemonTeams $pokemons */
+                            foreach ($data->pokemonTeams as $pkteam) {
+                                $pokes[] = '<img src="' . $pkteam->pokemon->image . '" width="60" data-toggle="tooltip" data-placement="top" title ="' . $pkteam->pokemon->name . '" />';
                             }
-                            return implode(" / ", $tipos);
+                            return implode("", $pokes);
                         }
                     ]
                 ],

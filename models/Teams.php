@@ -45,7 +45,7 @@ class Teams extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
+            'name' => 'Nome do Time',
             'updated_at' => 'Updated At',
             'created_at' => 'Created At',
         ];

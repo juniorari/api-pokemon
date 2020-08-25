@@ -43,17 +43,5 @@ $this->title = Yii::$app->name;
 
         </div>
     </div>
-    <script>
-        function requestData() {
-            $.post({
-                url: 'get-data',
-                type: 'post',
-                dataType: 'json'
-            }, function (data) {
-                console.log(data);
-            })
-        }
-
-    </script>
 
 <?php
