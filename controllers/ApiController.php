@@ -137,23 +137,36 @@ class ApiController extends Controller
 
             //definindo os pokemos ao time recém criado
             foreach ($posts['pokemons'] as $pokemon) {
-                $pk_team = new PokemonTeams();
-                $pk_team->team_id = $team->id;
-                $pk_team->pokemon_id = $pokemon;
-                $pk_team->save();
+                //só inserir se o ID for válido!
+                if (!Pokemon::findOne($pokemon)) {
+                    return $this->errorResponse([
+                        'error' => 'Não existe Pokémon com o ID informado ['.$pokemon.']. Verifique!'
+                    ], 400);
+                }
+
+                //nao inserir se já tiver o pokémon inserido no time
+                if (!PokemonTeams::findOne([
+                    'team_id'    => $team->id,
+                    'pokemon_id' => $pokemon
+                ])) {
+                    $pk_team = new PokemonTeams();
+                    $pk_team->team_id = $team->id;
+                    $pk_team->pokemon_id = $pokemon;
+                    $pk_team->save();
+                }
             }
 
 
             $t->commit();
             return $this->successResponse([
-                'message' => 'Time "' . $team->name . '" cadastrado com Sucesso!'
+                'message' => 'Time "' . $team->name . '" cadastrado com Sucesso!',
             ]);
 
 
         } catch (\Exception $e) {
             $t->rollBack();
             return $this->errorResponse([
-                'error' => $e->getMessage(),
+                'error' => $e->getFile().", linha ".$e->getLine() . " - " . $e->getMessage(),
             ], 400);
         }
     }
