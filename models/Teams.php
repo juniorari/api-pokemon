@@ -67,6 +67,9 @@ class Teams extends \yii\db\ActiveRecord
      */
     public function getPokemonTeams()
     {
-        return $this->hasMany(PokemonTeams::className(), ['team_id' => 'id']);
+        // fazendo a ordenação do retorno dos pokemons pelo XP
+        return $this->hasMany(PokemonTeams::className(), ['team_id' => 'id'])
+            ->innerJoin(Pokemon::tableName(), 'pokemon.id = pokemon_id')
+            ->orderBy('xp ASC');
     }
 }

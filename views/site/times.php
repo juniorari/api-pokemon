@@ -77,7 +77,7 @@ $this->registerJs("
                             $pokes = [];
                             /** @var PokemonTeams $pokemons */
                             foreach ($data->pokemonTeams as $pkteam) {
-                                $pokes[] = '<img src="' . $pkteam->pokemon->image . '" width="60" data-toggle="tooltip" data-placement="top" title ="' . $pkteam->pokemon->name . '" />';
+                                $pokes[] = '<img src="' . $pkteam->pokemon->image . '" width="60" data-toggle="tooltip" data-placement="top" title ="' . $pkteam->pokemon->name . '<br>XP: ' . $pkteam->pokemon->xp . '" />';
                             }
                             return implode("", $pokes);
                         }
