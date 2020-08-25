@@ -41,7 +41,7 @@ $dataProvider = $model->search(Yii::$app->request->queryParams);
 
             <div class="form-group col-md-2">
                 <label class="control-label">&nbsp;</label>
-                <?= Html::submitButton('<i class="fa fa-search"></i> Buscar', ['class' => 'btn btn-primary btn-block']) ?>
+                <?= Html::submitButton('<i class="fa fa-search"></i> Buscar', ['class' => 'btn btn-primary btn-block', 'name' => 'search-pokemon']) ?>
             </div>
             <div class="form-group col-md-2">
                 <label class="control-label">&nbsp;</label>

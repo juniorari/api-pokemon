@@ -152,7 +152,7 @@ echo Dialog::widget();
                 $('#poke-available').html(opts);
                 $('#btn-add').removeClass('disabled');
             } else {
-                $('#poke-available').html('<option value="">Nenhum resultado encontradi</option>');
+                $('#poke-available').html('<option value="">Nenhum resultado encontrado</option>');
                 $('#btn-add').addClass('disabled');
             }
             load(false);

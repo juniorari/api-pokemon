@@ -80,7 +80,7 @@ class PokemonSearch extends Pokemon
             'xp' => $this->xp,
         ]);
 
-        $query->andFilterWhere(['like', 'name', $this->name])
+        $query->andFilterWhere(['like', 'pokemon.name', $this->name])
             ->andFilterWhere(['like', 'image', $this->image])
             ->andFilterWhere(['like', 'types.name', $this->tipo]);
 
