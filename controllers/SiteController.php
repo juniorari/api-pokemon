@@ -75,14 +75,14 @@ class SiteController extends Controller
         return $this->render('criar-times');
     }
 
+    public function actionTimes() {
+        return $this->render('times');
+    }
     public function actionGetData() {
 
         $file = Yii::$app->basePath . "/pokemon.json";
-
         Yii::$app->response->format = Response::FORMAT_JSON;
-
         $content = file_get_contents($file);
-
         return json_decode($content)->pokemon;
 
     }

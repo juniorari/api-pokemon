@@ -18,6 +18,10 @@ use Yii;
  */
 class Pokemon extends \yii\db\ActiveRecord
 {
+
+    const POKE_LIMIT = 6;
+    const TEAM_LIMIT = 5;
+
     /**
      * {@inheritdoc}
      */

@@ -14,12 +14,14 @@
     },
     "minimum-stability": "dev",
     "require": {
-        "php": ">=5.6.0",
+        "php": ">=7.1",
         "yiisoft/yii2": "~2.0.14",
         "yiisoft/yii2-bootstrap": "~2.0.0",
         "yiisoft/yii2-swiftmailer": "~2.0.0 || ~2.1.0",
         "luoxiaojun1992/yii2-tinker": "*",
-        "ext-json": "*"
+        "ext-json": "*",
+        "kartik-v/yii2-krajee-base": "dev-master",
+        "kartik-v/yii2-dialog": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.1.0",

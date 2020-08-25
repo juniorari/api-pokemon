@@ -61,6 +61,7 @@ AppAsset::register($this);
             ['label' => 'Home', 'url' => ['/site/index']],
             ['label' => 'Pokémons', 'url' => ['/site/pokemons']],
             ['label' => 'Criar Time', 'url' => ['/site/criar-times']],
+            ['label' => 'Times', 'url' => ['/site/times']],
         ],
     ]);
     NavBar::end();
