@@ -1,12 +1,10 @@
-<?php
-
-use yii\helpers\Url;
+<?php 
 
 class PokemonsCest
 {
     public function _before(\AcceptanceTester $I)
     {
-        $I->amOnPage(Url::toRoute('/site/pokemons'));
+        $I->amOnPage('/site/pokemons');
     }
 
     public function pokemonsPageWorks(AcceptanceTester $I)
@@ -14,22 +12,20 @@ class PokemonsCest
         $I->wantTo('verificando busca na página');
         $I->see('Pokémons', 'h1');
 
-
-        $method = $I->grabAttributeFrom('#w0', 'method');
-        $I->assertEquals('get', $method);
-
     }
 
-    public function pokemonFormCanBeSubmitted(AcceptanceTester $I)
+    public function buscandoPokemonArbok(AcceptanceTester $I)
     {
         $I->amGoingTo('executando busca na página');
 
         $I->fillField('#pokemonsearch-name', 'arbok');
         $I->click('search-pokemon');
-        
-        $I->wait(2); // wait for button to be clicked
 
-        $I->seeElement('table.table-striped tbody > tr > td:nth(1)');
+        $this->wait(1);
         $I->see('poison');
+    }
+
+    public function wait($sec = 1) {
+        sleep($sec);
     }
 }

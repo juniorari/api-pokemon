@@ -1,19 +1,25 @@
 <?php
 
-use yii\helpers\Url;
-
 class HomeCest
 {
-    public function ensureThatHomePageWorks(AcceptanceTester $I)
+    /**
+     * @param AcceptanceTester $I
+     */
+    public function exibindoPaginaHome(AcceptanceTester $I)
     {
-        $I->amOnPage(Url::toRoute('/site/index'));        
+        $I->amOnPage('/site/index');
         $I->see('API Pokemon');
         $I->see('Bem vindo a Api Pokémon');
 
+        $I->amGoingTo('open Times page');
         $I->seeLink('Times');
         $I->click('Times');
-        $I->wait(2); // wait for page to be opened
-        
+        $this->wait(1); // wait for page to be opened
+
         $I->see('Times criados');
+    }
+
+    public function wait($sec = 1) {
+        sleep($sec);
     }
 }

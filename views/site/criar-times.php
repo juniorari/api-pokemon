@@ -69,10 +69,8 @@ echo Dialog::widget();
                             </div>
                         </div>
                         <div class="col-md-2">
-                            <button class="btn btn-success btn-block disabled" id="btn-add" onclick="pokeAdd()"><i
-                                        class="fa fa-plus"></i></button>
-                            <button class="btn btn-danger btn-block disabled" id="btn-remove" onclick="pokeRemove()"><i
-                                        class="fa fa-minus"></i></button>
+                            <button class="btn btn-success btn-block disabled" id="btn-add" onclick="pokeAdd()"><i class="fa fa-chevron-right"></i></button>
+                            <button class="btn btn-danger btn-block disabled" id="btn-remove" onclick="pokeRemove()"><i class="fa fa-chevron-left"></i></button>
                             <br>
                         </div>
                         <div class="col-md-5 col-lg-5">

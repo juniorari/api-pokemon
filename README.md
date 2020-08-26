@@ -37,18 +37,11 @@ TECNOLOGIAS UTILIZADAS:
 - [Docker](http://docker.com)
 - [jQuery](https://code.jquery.com/)
 - [Bootstrap](https://getbootstrap.com/)
-- [MySQL](https://www.mysql.com/downloads/)  
+- [MySQL](https://www.mysql.com/downloads/)
+- [Postman](https://www.postman.com/)
 - [Krakee Dialog](https://demos.krajee.com/dialog/)  
-
-<!--
-- [NPM JS](https://www.npmjs.com/)
 - [Composer](https://getcomposer.org/)
-- [Grunt](https://gruntjs.com/)
-- [Krakee Fileinput](https://plugins.krajee.com/file-input)
-- [Krajee Select2](https://demos.krajee.com/widget-details/select2) 
-- [Testes com Codeception](https://codeception.com/)
-- [MySQL Workbench](https://dev.mysql.com/downloads/workbench/)
--->
+
 
 INSTALAÇÃO
 ------------
@@ -116,7 +109,6 @@ http://127.0.0.1:8000
 
 **OBS:** 
 - O mínimo requerido para o Docker engine é a versão `17.04` (veja em [Performance tuning for volume mounts](https://docs.docker.com/docker-for-mac/osxfs-caching/))
-- The default configuration uses a host-volume in your home directory `.composer-docker` for composer caches
 - A configuração padrão usa o diretório `.composer-docker` na home para os caches do composer
 
 A API
@@ -142,3 +134,23 @@ modules:
 ```
 $ php vendor/bin/codecept run
 ```
+
+JUSTIFICATIVAS PARA AS TECNOLOGIAS UTILIZADAS
+-----
+
+- **Yii2 Framework** - Framework PHP simples, porém robusto. Fácil de implementar e com diversas funcionalidades que agilizam o desenvolvimento.
+
+- **Docker** - Facilidade de implementação e instalação em diferentes tipos de máquinas e equipamentos, independendo do hardware para rodar qualquer aplicação.
+
+- **jQuery** - Bootstrap bastante utilizado que facilita integração e o desenvolvimento com javascript.
+
+- **Bootstrap** - Conjunto completo de CSS para HTML, facilitando a implementação da responsividade nas mais diversas telas.
+ 
+- **MySQL** - Banco de dados relacional que facilita o armazenamento e busca de informações no sistema.
+ 
+- **Postman** - Ferramenta Open Source que facilita a criação, testes e publicação da API.
+
+- **Krakee Dialog** - Plugin de um Diálogo em CSS e Bootstrap, implementado para o Yii Framework, além de ter um melhor visual para apresentação dos alertas.   
+
+- **Composer** - Gerenciador de bibliotecas essencial para o PHP, permitindo instalar e atualizar as dependências de forma simples, prática e fácil.
+
