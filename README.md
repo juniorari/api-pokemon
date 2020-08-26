@@ -8,8 +8,11 @@ A Página Inicial consiste na visualização de randômica de alguns pokémons, 
 
 Na página `Pokémons` é exibindo uma tela com a exibição dos pokemons em uma tabela com paniação, podendo
 realizar busca pelo nome e/ou tipo.
+
 Já na página `Criar Time`, é possível criar times com até 06 pokémons. Todas as ações nesta página são 
 feitas via AJAX, chamando as APIs.
+
+E na página `Times` é possível exibir os times que foram criados, com seus respectivos pokémons.
 
 
 ESTRUTURA DOS DIRETÓRIOS
@@ -28,8 +31,6 @@ ESTRUTURA DOS DIRETÓRIOS
       web/                contains the entry script and Web resources
 
 
-
-
 TECNOLOGIAS UTILIZADAS:
 -----------
 
@@ -46,7 +47,7 @@ TECNOLOGIAS UTILIZADAS:
 INSTALAÇÃO
 ------------
 
-Com o [Docker](http://docker.com) devidamente instalado e funcionando, executar o seguinte comando:
+Clone o repositório:
 
 ```
 $ git clone git@github.com/juniorari/api-pokemon.git
@@ -58,18 +59,11 @@ Acesse o diretório:
 $ cd api-pokemon/
 ```
 
-Atualize os pacotes (seja paciente...):
+Com o [Docker/Docker Compose](http://docker.com) devidamente instalado e funcionando, crie os containers e atualize os pacotes (seja paciente...):
 
 ```
 $ docker-compose run --rm php composer update --prefer-dist -vvv
 ``` 
-???????????????????????????????
-
-Run the installation triggers (creating cookie validation code)
-```
-$ docker-compose run --rm php composer install    
-```
-
 Dê permissão de escrita aos diretórios `web/assets` e `runtime`:
 ```
 $ chmod -R 777 web/assets
@@ -77,7 +71,7 @@ $ chmod -R 777 runtime
 ``` 
 ### Banco de Dados
 
-Caso necessário, editar o arquivo `config/db.php` com os dados de acesso ao banco no container:
+Caso tenha alterado informações do banco no arquivo `docker-compose.yml`, é necessário editar `config/db.php` com os dados de acesso ao banco no container:
 
 ```php
 return [
@@ -88,14 +82,14 @@ return [
     'charset' => 'utf8',
 ];
 ```
-Executar as migrations:
-```
-$ php yii migrate
-```
 
 **OBS:**
 - Não é necessário criar o banco de dados. A configuração do docker já faz isso! ;-)
 
+Executar as migrations:
+```
+$ php yii migrate
+```
 
 Inicialize os containers:
 
@@ -123,12 +117,12 @@ Realizando Testes com Codeception
 arquivo **tests/acceptance.suite.yml**, de acordo com a URL do site. 
 Ex: **http://127.0.0.1:8000**
 ```
-actor: AcceptanceTester
+class_name: AcceptanceTester
 modules:
-    enabled:
-        - PhpBrowser:
-            url: http://127.0.0.1:8000
-        - \Helper\Acceptance
+  enabled:
+    - PhpBrowser:
+        url: http://127.0.0.1:8000/
+
 ```
 * Executar os testes:
 ```

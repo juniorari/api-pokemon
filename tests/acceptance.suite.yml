@@ -4,14 +4,6 @@
 # Perform tests in browser using the WebDriver or PhpBrowser.
 # If you need both WebDriver and PHPBrowser tests - create a separate suite.
 #
-#class_name: AcceptanceTester
-#actor: AcceptanceTester
-#modules:
-#    enabled:
-#        - PhpBrowser:
-#            url: http://127.0.0.1:8000
-#        - \Helper\Acceptance
-
 
 
 class_name: AcceptanceTester
@@ -19,8 +11,3 @@ modules:
   enabled:
     - PhpBrowser:
         url: http://127.0.0.1:8000/
-#        browser: firefox
-#    - Yii2:
-#        part: orm
-#        entryScript: index-test.php
-#        cleanup: false
